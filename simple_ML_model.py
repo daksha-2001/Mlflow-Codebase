@@ -48,6 +48,8 @@ def main(alpha,l1_ratio):
         mlflow.log_metric("rmse",rmse)
         mlflow.log_metric("MAE",mae)
         mlflow.log_metric("R2_score",r2)
+
+        mlflow.sklearn.log_model(lr, "model")
         
 def evaluate(y,pred):
     rmse=np.sqrt(mean_squared_error(y,pred))
